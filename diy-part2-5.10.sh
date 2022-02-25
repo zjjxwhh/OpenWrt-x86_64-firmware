@@ -17,5 +17,6 @@ sed -i '12s/wan/lan/g' package/base-files/files/etc/board.d/99-default_network
 sed -i '13s/5.10/5.10/g' target/linux/x86/Makefile
 # sed -i "159a set network.$1.gateway='192.168.9.1'" package/base-files/files/bin/config_generate
 # sed -i "159a set network.$1.dns='127.0.0.1 223.5.5.5 8.8.8.8'" package/base-files/files/bin/config_generate
-rm -rf package/lean/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon
+# rm -rf package/lean/luci-theme-argon
+rm -rf feeds/luci/themes/luci-theme-argon
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
