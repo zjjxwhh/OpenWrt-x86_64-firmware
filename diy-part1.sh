@@ -22,3 +22,4 @@ echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git' >>fe
 git clone https://github.com/kongfl888/luci-app-adguardhome.git package/lean/luci-app-adguardhome
 git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/lean/luci-app-smartdns
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/lean/luci-app-argon-config
+git clone https://github.com/gdy666/luci-app-lucky.git package/lean/lucky
