@@ -22,3 +22,10 @@ git clone https://github.com/kongfl888/luci-app-adguardhome.git package/lean/luc
 git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/lean/luci-app-smartdns
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/lean/luci-app-argon-config
 git clone https://github.com/gdy666/luci-app-lucky.git package/lean/lucky
+
+# Add luci-app-openclash
+wget -O package/openclash.zip https://codeload.github.com/vernesong/OpenClash/zip/refs/heads/master
+unzip -d package/openclash package/openclash.zip
+cp -r package/openclash/OpenClash-master/luci-app-openclash package/lean/luci-app-openclash
+rm -rf package/openclash
+rm -f package/openclash.zip
