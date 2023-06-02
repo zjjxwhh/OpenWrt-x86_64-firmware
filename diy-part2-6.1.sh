@@ -19,3 +19,4 @@ sed -i '12s/wan/lan/g' package/base-files/files/etc/board.d/99-default_network
 
 rm -rf feeds/luci/themes/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
+wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://github.com/zjjxwhh/OpenWrt-x86_64-firmware/blob/main/assets/black-network-switch-with-cables.jpg
