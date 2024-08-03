@@ -14,14 +14,13 @@
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
-echo 'src-git helloworld https://github.com/fw876/helloworld;main' >>feeds.conf.default
+echo 'src-git helloworld https://github.com/fw876/helloworld.git' >>feeds.conf.default
 echo 'src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main' >>feeds.conf.default
 echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall.git;main' >>feeds.conf.default
 echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main' >>feeds.conf.default
 echo 'src-git cdnspeedtest https://github.com/immortalwrt-collections/openwrt-cdnspeedtest.git' >>feeds.conf.default
-git clone https://github.com/kongfl888/luci-app-adguardhome.git package/lean/luci-app-adguardhome
+# git clone https://github.com/kongfl888/luci-app-adguardhome.git package/lean/luci-app-adguardhome
 git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/lean/luci-app-smartdns
-# git clone https://github.com/jerrykuku/luci-app-argon-config.git package/lean/luci-app-argon-config
 git clone https://github.com/gdy666/luci-app-lucky.git package/lean/lucky
 
 # Add luci-app-openclash
