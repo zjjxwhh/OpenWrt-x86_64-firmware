@@ -21,6 +21,10 @@ sed -i '12s/wan/lan/g' package/base-files/files/etc/board.d/99-default_network
 sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/' feeds/cdnspeedtest/cdnspeedtest/Makefile
 sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/' feeds/packages/net/mosdns/Makefile
 
+# Fix uugamebooster build error
+sed -i "s/openwrt-\$(UU_ARCH)\/\$(PKG_VERSION)\/uu.tar.gz?/openwrt-\$(UU_ARCH)\/\$(PKG_VERSION)\//g" feeds/packages/net/uugamebooster/Makefile
+sed -i "s/\$(PKG_NAME)-\$(UU_ARCH)-\$(PKG_VERSION).tar.gz/uu.tar.gz/g" feeds/packages/net/uugamebooster/Makefile
+
 rm -rf feeds/luci/themes/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
 wget -O feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg https://raw.githubusercontent.com/zjjxwhh/OpenWrt-x86_64-firmware/main/assets/black-network-switch-with-cables.jpg
