@@ -17,6 +17,9 @@ sed -i '12s/wan/lan/g' package/base-files/files/etc/board.d/99-default_network
 # sed -i "159a set network.$1.gateway='192.168.9.1'" package/base-files/files/bin/config_generate
 # sed -i "159a set network.$1.dns='127.0.0.1 223.5.5.5 8.8.8.8'" package/base-files/files/bin/config_generate
 
+# Modify sysinfo
+sed -i "41r mods/autocore" package/lean/autocore/files/x86/autocore
+
 # Fix build error caused by CGO
 sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/' feeds/cdnspeedtest/cdnspeedtest/Makefile
 sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/' feeds/packages/net/mosdns/Makefile

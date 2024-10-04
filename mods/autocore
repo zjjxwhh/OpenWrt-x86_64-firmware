@@ -1,0 +1,5 @@
+    mac=$(ip link show | grep 'link/ether' | awk '{print $2}')
+    if echo ${mac} | grep -q "e4:3a:6e:60:c9:ea"; then
+        g='ASRock H410M-ITX/ac'
+    fi
+
