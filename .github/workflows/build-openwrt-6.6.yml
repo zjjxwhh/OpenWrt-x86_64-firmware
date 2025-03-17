@@ -213,9 +213,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: "[6.6] ${{ steps.tag.outputs.release_tag }}"
+        name: "${{ steps.tag.outputs.release_tag }}"
         tag_name: ${{ steps.tag.outputs.release_tag }}
         body_path: release.txt
+        prerelease: true
         files: ${{ env.FIRMWARE }}/*
 
     - name: Delete workflow runs
@@ -230,5 +231,6 @@ jobs:
       with:
         keep_latest: 4
         delete_tags: true
+        delete_prerelease_only: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
