@@ -13,23 +13,30 @@
 # Uncomment a feed source
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
-# Adjust luci feeds
-sed -i 's/^#src-git luci https:\/\/github.com\/coolsnowwolf\/luci/src-git luci https:\/\/github.com\/coolsnowwolf\/luci/' feeds.conf.default
-sed -i '/^src-git luci https:\/\/github.com\/coolsnowwolf\/luci\.git;openwrt-23\.05/ s/^/#/' feeds.conf.default
-
 # Add a feed source
-echo 'src-git helloworld https://github.com/fw876/helloworld.git' >>feeds.conf.default
-echo 'src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main' >>feeds.conf.default
-echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall.git;main' >>feeds.conf.default
-echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main' >>feeds.conf.default
 echo 'src-git cdnspeedtest https://github.com/immortalwrt-collections/openwrt-cdnspeedtest.git' >>feeds.conf.default
-# git clone https://github.com/kongfl888/luci-app-adguardhome.git package/lean/luci-app-adguardhome
-git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/lean/luci-app-smartdns
-git clone https://github.com/gdy666/luci-app-lucky.git package/lean/lucky
+
+mkdir package/lean/passwall
+# Add luci-app-passwall
+wget -O package/openwrt-passwall.zip https://codeload.github.com/xiaorouji/openwrt-passwall/zip/refs/heads/main
+unzip -d package/openwrt-passwall package/openwrt-passwall.zip
+cp -r package/openwrt-passwall/openwrt-passwall-main/luci-app-passwall package/lean/passwall/luci-app-passwall
+rm -rf package/openwrt-passwall package/openwrt-passwall.zip
+
+# Add luci-app-passwall2
+wget -O package/openwrt-passwall2.zip https://codeload.github.com/xiaorouji/openwrt-passwall2/zip/refs/heads/main
+unzip -d package/openwrt-passwall2 package/openwrt-passwall2.zip
+cp -r package/openwrt-passwall2/openwrt-passwall2-main/luci-app-passwall2 package/lean/passwall/luci-app-passwall2
+rm -rf package/openwrt-passwall2 package/openwrt-passwall2.zip
+
+# Add openwrt-passwall-packages
+wget -O package/openwrt-passwall-packages.zip https://codeload.github.com/xiaorouji/openwrt-passwall-packages/zip/refs/heads/main
+unzip -d package/openwrt-passwall-packages package/openwrt-passwall-packages.zip
+cp -r package/openwrt-passwall-packages/openwrt-passwall-packages-main/* package/lean/passwall
+rm -rf package/openwrt-passwall-packages package/openwrt-passwall-packages.zip
 
 # Add luci-app-openclash
 wget -O package/openclash.zip https://codeload.github.com/vernesong/OpenClash/zip/refs/heads/master
 unzip -d package/openclash package/openclash.zip
 cp -r package/openclash/OpenClash-master/luci-app-openclash package/lean/luci-app-openclash
-rm -rf package/openclash
-rm -f package/openclash.zip
+rm -rf package/openclash package/openclash.zip
