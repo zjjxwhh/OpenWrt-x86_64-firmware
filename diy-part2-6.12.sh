@@ -13,9 +13,6 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.9.1/g' package/base-files/luci/bin/config_generate
 
-# Modify default theme
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-light/Makefile
-
 # Modify hostname
 sed -i 's/LEDE/OpenWrt/g' package/base-files/luci/bin/config_generate
 
