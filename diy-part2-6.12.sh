@@ -1,22 +1,23 @@
 #!/bin/bash
 #
-# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
-#
-# This is free software, licensed under the MIT License.
-# See /LICENSE for more information.
-#
 # https://github.com/P3TERX/Actions-OpenWrt
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
+# Copyright (c) 2019-2024 P3TERX <https://p3terx.com>
+#
+# This is free software, licensed under the MIT License.
+# See /LICENSE for more information.
+#
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.9.1/g' package/base-files/files/bin/config_generate
-sed -i '11s/lan/wan/g' package/base-files/files/etc/board.d/99-default_network
-sed -i '12s/wan/lan/g' package/base-files/files/etc/board.d/99-default_network
+sed -i 's/192.168.1.1/192.168.9.1/g' package/base-files/luci/bin/config_generate
 
-# Fix build error caused by CGO
-sed -i 's/CGO_ENABLED=0/CGO_ENABLED=1/' feeds/cdnspeedtest/cdnspeedtest/Makefile
+# Modify default theme
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci-light/Makefile
+
+# Modify hostname
+sed -i 's/LEDE/OpenWrt/g' package/base-files/luci/bin/config_generate
 
 # Update luci-theme-argon
 rm -rf feeds/luci/themes/luci-theme-argon

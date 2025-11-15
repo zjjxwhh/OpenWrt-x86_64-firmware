@@ -1,22 +1,27 @@
 #!/bin/bash
 #
-# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
-#
-# This is free software, licensed under the MIT License.
-# See /LICENSE for more information.
-#
 # https://github.com/P3TERX/Actions-OpenWrt
 # File name: diy-part1.sh
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
+#
+# Copyright (c) 2019-2024 P3TERX <https://p3terx.com>
+#
+# This is free software, licensed under the MIT License.
+# See /LICENSE for more information.
 #
 
 # Uncomment a feed source
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
-# Add a feed source
-echo 'src-git cdnspeedtest https://github.com/immortalwrt-collections/openwrt-cdnspeedtest.git' >>feeds.conf.default
+# Create cdnspeedtest directory
+mkdir -p package/lean/cdnspeedtest
 
-mkdir package/lean/passwall
+# Add cdnspeedtest
+curl -fL "https://raw.githubusercontent.com/immortalwrt/packages/master/net/cdnspeedtest/Makefile" | sed 's,../../lang,$(TOPDIR)/feeds/packages/lang,' > "package/lean/cdnspeedtest/Makefile"
+
+# Create passwall directory
+mkdir -p package/lean/passwall
+
 # Add luci-app-passwall
 wget -O package/openwrt-passwall.zip https://codeload.github.com/xiaorouji/openwrt-passwall/zip/refs/heads/main
 unzip -d package/openwrt-passwall package/openwrt-passwall.zip
