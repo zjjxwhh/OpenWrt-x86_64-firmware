@@ -45,3 +45,7 @@ wget -O package/openclash.zip https://codeload.github.com/vernesong/OpenClash/zi
 unzip -d package/openclash package/openclash.zip
 cp -r package/openclash/OpenClash-master/luci-app-openclash package/lean/luci-app-openclash
 rm -rf package/openclash package/openclash.zip
+
+# Add luci-app-bandix
+git clone https://github.com/timsaya/openwrt-bandix.git package/lean/bandix/openwrt-bandix
+git clone https://github.com/timsaya/luci-app-bandix.git package/lean/bandix/luci-app-bandix
