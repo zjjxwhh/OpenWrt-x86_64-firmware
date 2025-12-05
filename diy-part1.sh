@@ -13,6 +13,10 @@
 # Uncomment a feed source
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
+# Use openwrt-24.10
+sed -i 's/^#\(.*openwrt-24.10\)/\1/' feeds.conf.default
+sed -i 's/^\(.*openwrt-23.05\)/#\1/' feeds.conf.default
+
 # Create cdnspeedtest directory
 mkdir -p package/lean/cdnspeedtest
 
