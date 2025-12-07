@@ -178,7 +178,7 @@ jobs:
       run: |
         echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
         touch release.txt
-        echo "Linux Kernel 6.12 + LuCI 23.05" >> release.txt
+        echo "Linux Kernel 6.12 + LuCI 24.10" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: Upload firmware to release
